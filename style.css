@@ -1,0 +1,219 @@
+:root {
+  --secondaryColor: #fbde44;
+  --primaryColor: #fc6e00;
+}
+
+.debug {
+  position: fixed;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  font-family: monospace;
+  font-size: 1.6rem;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(45deg, grey 0%, lightgray 100%);
+}
+
+.slots {
+  position: relative;
+  width: 276.5px;
+  height: 237px;
+  display: flex;
+  justify-content: space-between;
+  padding: 23.7px;
+  background: linear-gradient(45deg, grey 0%, lightgray 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.6);
+  border-right: 1px solid rgba(255, 255, 255, 0.6);
+  border-left: 1px solid rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+}
+.slots::before, .slots::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 2px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.slots::before {
+  left: 0;
+  transform: translate(-200%, -50%);
+}
+.slots::after {
+  right: 0;
+  transform: translate(200%, -50%);
+}
+@keyframes win1 {
+  0% {
+    background: linear-gradient(45deg, orange 0%, yellow 100%);
+    box-shadow: 0 0 80px orange;
+  }
+  100% {
+    background: linear-gradient(45deg, grey 0%, lightgrey 100%);
+    box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.3);
+  }
+}
+@keyframes win2 {
+  0% {
+    background: linear-gradient(45deg, lightblue 0%, lightgreen 100%);
+    box-shadow: 0 0 80px lightgreen;
+  }
+  100% {
+    background: linear-gradient(45deg, grey 0%, lightgrey 100%);
+    box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.3);
+  }
+}
+.slots.win1 {
+  animation: win1 200ms steps(2, end) infinite;
+}
+.slots.win2 {
+  animation: win2 200ms steps(2, end) infinite;
+}
+.slots .reel {
+  position: relative;
+  width: 79px;
+  height: 237px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  overflow: hidden;
+  background-image: url(https://assets.codepen.io/439000/slotreel.webp);
+  background-position: 0 0;
+  background-repeat: repeat-y;
+}
+.slots .reel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, transparent 30%, transparent 70%, rgba(0, 0, 0, 0.4) 100%);
+  box-shadow: inset 0 0 6px 2px rgba(0, 0, 0, 0.3);
+}
+.slots p {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, calc(100% + 30px));
+  text-align: center;
+  font-size: 0.8rem;
+  color: #444;
+}
+.slots p a {
+  color: red;
+  font-weight: 700;
+}
+
+#machine-lever {
+  position: relative;
+  top: 15em;
+  left: 1em;
+}
+
+#machine-lever .lever-base , .lever-chair, .lever-chair2 {
+
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: absolute;
+
+}
+
+#machine-lever > div.lever-base {
+  width: 1em;
+  height: 3em;
+}
+.lever-chair{
+  background: linear-gradient(to bottom, #a2a3a7 0%, #fefefe 35%, #2e2a2b 100%);
+    width: 1.5em;
+    height: 4em;
+    left: 0.50em;
+    top: -17em;
+}
+.lever-chair2{
+  background: linear-gradient(to bottom, #a2a3a7 0%, #fefefe 35%, #2e2a2b 100%);
+    width: 1em;
+    height: 3em;
+    left: 2em;
+    top: -16.7em;
+}
+
+
+#lever-bar {
+    height: 6em;
+    width: 0.7em;
+    background: linear-gradient(to right, #a2a3a7 0%, #fefefe 35%, #2e2a2b 100%);
+    border-radius: 50%/3px;
+    position: absolute;
+    left: 1.87em;
+    bottom: 19em;
+
+}
+
+#lever-ball {
+  width: 2.5em;
+  height: 2.5em;
+  background: radial-gradient(circle at 25px 20px, deeppink 0%, var(--primaryColor) 100%);
+  border-radius: 50%;
+  position: absolute;
+  left: 0.85em;
+  cursor: pointer;
+  bottom: 24em;
+  z-index: 9;
+
+} 
+
+.downBall{
+  animation-name: ballDown;
+  animation-duration: 1s;
+}
+
+.downBar {
+  animation-name: barDown;
+    animation-duration: 1s;
+}
+.wis-img-item{
+  height: 80px;
+  width: 80px;
+}
+
+@keyframes ballDown {
+  0% {
+    bottom:24em;
+  }
+  50% {
+    bottom: 20em;
+  }
+  100%{
+    bottom:24em;
+  }
+}
+
+@keyframes barDown{
+  0% {
+    height: 6em;
+  }
+  50% {
+    height: 0.5em;
+  }
+  100% {
+    height: 6em;
+  }
+}
+
+
+/*# sourceMappingURL=style.css.map */
