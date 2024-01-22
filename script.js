@@ -59,36 +59,66 @@ const roll = (reel, offset = 0) => {
 /**
  * Roll all reels, when promise resolves roll again
  */
+var isAnimationInProgress = false;
+
+function handleAnimationEnd() {
+  // Разблокировать анимацию слотов
+  isAnimationInProgress = false;
+
+  // Убрать классы анимации рычага
+  leverBall.classList.remove('downBall');
+  leverBar.classList.remove('downBar');
+
+  // Удалить обработчик события, чтобы избежать многократного выполнения
+  document.querySelector(".slots").removeEventListener('transitionend', handleAnimationEnd);
+}
+
 function rollAll() {
   debugEl.textContent = 'rolling...';
   const reelsList = document.querySelectorAll('.slots > .reel');
-  Promise
 
-  // Activate each reel, must convert NodeList to Array for this with spread operator
-  .all([...reelsList].map((reel, i) => roll(reel, i)))
+  // Сброс значений indexes перед новым запуском анимации
+  indexes.fill(0);
 
-  // When all reels done animating (all promises solve)
-  .then(deltas => {
-    // add up indexes
-    deltas.forEach((delta, i) => indexes[i] = (indexes[i] + delta) % num_icons);
-    debugEl.textContent = indexes.map(i => iconMap[i]).join(' - ');
+  Promise.all([...reelsList].map((reel, i) => roll(reel, i)))
+    .then(deltas => {
+      // add up indexes
+      deltas.forEach((delta, i) => indexes[i] = (indexes[i] + delta) % num_icons);
+      debugEl.textContent = indexes.map(i => iconMap[i]).join(' - ');
 
-    // Win conditions
-    if (indexes[0] == indexes[1] || indexes[1] == indexes[2]) {
-      const winCls = indexes[0] == indexes[2] ? "win2" : "win1";
-      document.querySelector(".slots").classList.add(winCls);
-      setTimeout(() => document.querySelector(".slots").classList.remove(winCls), 2000);
-    }
+      // Win conditions
+      if (indexes[0] == indexes[1] || indexes[1] == indexes[2]) {
+        const winCls = indexes[0] == indexes[2] ? "win2" : "win1";
+        document.querySelector(".slots").classList.add(winCls);
 
-    // Again!
-  });
+        // Добавить обработчик события transitionend
+        document.querySelector(".slots").addEventListener('transitionend', handleAnimationEnd);
+
+        setTimeout(() => {
+          document.querySelector(".slots").classList.remove(winCls);
+          // Again!
+          rollAll();
+        }, 2000);
+      } else {
+        // Again!
+        handleAnimationEnd();
+      }
+    });
 }
-;
 
-// Kickoff
-    /*Start Spin*/
-leverBall.addEventListener('click',function(){
-    leverBall.classList.add('downBall');
-    leverBar.classList.add ('downBar');
-    rollAll();
+leverBall.addEventListener('click', function () {
+  // Если анимация уже выполняется, не обрабатывать клик
+  if (isAnimationInProgress) {
+    return;
+  }
+
+  // Блокировать анимацию слотов
+  isAnimationInProgress = true;
+
+  // Запустить анимацию рычага
+  leverBall.classList.add('downBall');
+  leverBar.classList.add('downBar');
+
+  // Запустить анимацию слотов и после ее завершения разблокировать
+  rollAll();
 });
