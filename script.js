@@ -1,6 +1,9 @@
 /**
  * Setup
  */
+let tg = window.Telegram.WebApp;
+tg.expand();
+
 const debugEl = document.getElementById('debug'),
   // Mapping of indexes to icons: start from banana in middle of initial position and then upwards
   iconMap = ["banana", "seven", "cherry", "plum", "orange", "bell", "bar", "lemon", "melon"],
