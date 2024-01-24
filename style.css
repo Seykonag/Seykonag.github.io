@@ -221,7 +221,6 @@ body {
   }
   
 }
-
 @keyframes barDown{
   0% {
     height: 6em;
@@ -231,48 +230,5 @@ body {
   }
   100% {
     height: 6em;
-  }
-}
-
-@media (min-width: 992px) {
-
-}
-
-@media (min-width: 1200px) {
-
-}
-
-@media (min-width: 768px) {
-
-}
-
-@media (min-width: 480px) {
-
-}
-
-@media (min-width: 320px) {
-  .slots{
-    top:60px;
-  }
-  .lever-chair{
-    top:-200px;
-  }
-  .lever-chair2{
-    top:-195px;
-  }
-  .wis-bll{
-    top:-305px;
-  }
-  .downball{
-    top:-305px;
-  }
-  .downbar{
-    top: -290px;
-  }
-  .wis-brr{
-    top: -290px;
-  }
-  .debug{
-    top:335px;
   }
 }
