@@ -5,7 +5,7 @@
 
 .debug {
   position: fixed;
-  top: 330px;
+  top: 550px;
   left: 49%;
   transform: translateX(-50%);
   padding: 4px;
@@ -42,20 +42,21 @@ body {
 }
 
 .slots {
-  position: relative;
-  width: 276.5px;
-  height: 237px;
-  display: flex;
-  justify-content: space-between;
-  padding: 23.7px;
-  background: linear-gradient(45deg, midnightblue 0%, purple 100%);
-  border-top: 1px solid rgba(255, 255, 255, 0.6);
-  border-right: 1px solid rgba(255, 255, 255, 0.6);
-  border-left: 1px solid rgba(0, 0, 0, 0.4);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-  box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.3);
-  border-radius: 3px;
-  left: -15px;
+    top: 60px;
+    position: relative;
+    width: 276.5px;
+    height: 237px;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background: linear-gradient(45deg, midnightblue 0%, purple 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.6);
+    border-right: 1px solid rgba(255, 255, 255, 0.6);
+    border-left: 1px solid rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    left: -20px;
 }
 .slots::before, .slots::after {
   content: "";
@@ -154,44 +155,46 @@ body {
   height: 3em;
 }
 .lever-chair{
-  background: linear-gradient(to bottom, midnightblue 0%, mediumvioletred 15%, midnightblue 100%);
-    width: 1.5em;
+    background: linear-gradient(to bottom, midnightblue 0%, mediumvioletred 15%, midnightblue 100%);
+    width: 1.1em;
     height: 4em;
-    left: 0.50em;
-    top: -17em;
+    left: -0.2em;
+    top: -13em;
 }
 .lever-chair2{
-  background: linear-gradient(to bottom, midnightblue 0%, mediumvioletred 35%, midnightblue 100%);
+    background: linear-gradient(to bottom, midnightblue 0%, mediumvioletred 35%, midnightblue 100%);
     width: 1em;
     height: 3em;
-    left: 2em;
-    top: -16.7em;
+    left: 1em;
+    top: -12.7em;
 }
 
 
 #lever-bar {
+    top: -18em;
     height: 6em;
     width: 0.7em;
     background: linear-gradient(to right, #a2a3a7 0%, #fefefe 35%, #2e2a2b 100%);
     border-radius: 50%/3px;
     position: absolute;
-    left: 1.87em;
+    left: 1em;
     bottom: 19em;
     -webkit-tap-highlight-color: transparent;
 
 }
 
 #lever-ball {
-  width: 2.5em;
-  height: 2.5em;
-  background: radial-gradient(circle at 25px 20px, mediumvioletred 100%, var(--primaryColor) 100%);
-  border-radius: 50%;
-  position: absolute;
-  left: 0.85em;
-  cursor: pointer;
-  bottom: 24em;
-  z-index: 9;
-  -webkit-tap-highlight-color: transparent;
+    top: -20em;
+    width: 2.5em;
+    height: 2.5em;
+    background: radial-gradient(circle at 25px 20px, mediumvioletred 100%, var(--primaryColor) 100%);
+    border-radius: 50%;
+    position: absolute;
+    left: 0em;
+    cursor: pointer;
+    bottom: 24em;
+    z-index: 9;
+    -webkit-tap-highlight-color: transparent;
 
 } 
 
