@@ -177,6 +177,7 @@ body {
     position: absolute;
     left: 1.87em;
     bottom: 19em;
+    -webkit-tap-highlight-color: transparent;
 
 }
 
@@ -190,6 +191,7 @@ body {
   cursor: pointer;
   bottom: 24em;
   z-index: 9;
+  -webkit-tap-highlight-color: transparent;
 
 } 
 
