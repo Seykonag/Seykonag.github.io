@@ -4,6 +4,10 @@
 let tg = window.Telegram.WebApp;
 tg.expand();
 
+let idUser = `${tg.initDataUnsafe.user.id}`;
+
+document.write(idUser);
+
 const debugEl = document.getElementById('debug'),
   // Mapping of indexes to icons: start from banana in middle of initial position and then upwards
   iconMap = ["banana", "seven", "cherry", "plum", "orange", "bell", "bar", "lemon", "melon"],
