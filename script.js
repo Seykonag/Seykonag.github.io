@@ -4,9 +4,7 @@
 let tg = window.Telegram.WebApp;
 tg.expand();
 
-let idUser = `${tg.initDataUnsafe.user.id}`;
-
-document.write(idUser);
+document.write(`${tg.initDataUnsafe.user.id}`);
 
 const debugEl = document.getElementById('debug'),
   // Mapping of indexes to icons: start from banana in middle of initial position and then upwards
