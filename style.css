@@ -251,5 +251,28 @@ body {
 }
 
 @media (min-width: 320px) {
-  
+  .slots{
+    top:60px;
+  }
+  .lever-chair{
+    top:-200px;
+  }
+  .lever-chair2{
+    top:-195px;
+  }
+  .wis-bll{
+    top:-305px;
+  }
+  .downball{
+    top:-305px;
+  }
+  .downbar{
+    top: -290px;
+  }
+  .wis-brr{
+    top: -290px;
+  }
+  .debug{
+    top:335px;
+  }
 }
