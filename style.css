@@ -5,14 +5,25 @@
 
 .debug {
   position: fixed;
-  top: 4px;
-  left: 50%;
+  top: 300px;
+  left: 49%;
   transform: translateX(-50%);
   padding: 4px;
-  background: white;
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  background:;
+  border: 0px solid rgba(0, 0, 0, 0.3);
   font-family: monospace;
-  font-size: 1.6rem;
+  font-size: 1rem;
+  color: whitesmoke;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+  }
+  to {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0073e6, 0 0 40px #0073e6, 0 0 50px #0073e6, 0 0 60px #0073e6, 0 0 70px #0073e6;
+  }
 }
 
 html, body {
@@ -25,7 +36,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(45deg, grey 0%, lightgray 100%);
+  background-image: url(fone.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 .slots {
@@ -35,7 +48,7 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 23.7px;
-  background: linear-gradient(45deg, grey 0%, lightgray 100%);
+  background: linear-gradient(45deg, midnightblue 0%, purple 100%);
   border-top: 1px solid rgba(255, 255, 255, 0.6);
   border-right: 1px solid rgba(255, 255, 255, 0.6);
   border-left: 1px solid rgba(0, 0, 0, 0.4);
@@ -62,11 +75,11 @@ body {
 }
 @keyframes win1 {
   0% {
-    background: linear-gradient(45deg, orange 0%, yellow 100%);
-    box-shadow: 0 0 80px orange;
+    background: linear-gradient(45deg, mediumvioletred 0%, mediumvioletred 100%);
+    box-shadow: 0 0 80px mediumvioletred;
   }
   100% {
-    background: linear-gradient(45deg, grey 0%, lightgrey 100%);
+    background: linear-gradient(45deg, midnightblue 0%, purple 100%);
     box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.3);
   }
 }
@@ -76,7 +89,7 @@ body {
     box-shadow: 0 0 80px lightgreen;
   }
   100% {
-    background: linear-gradient(45deg, grey 0%, lightgrey 100%);
+    background: linear-gradient(45deg, midnightblue 0%, purple 100%);
     box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.3);
   }
 }
@@ -93,7 +106,7 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 3px;
   overflow: hidden;
-  background-image: url(https://assets.codepen.io/439000/slotreel.webp);
+  background-image: url(slotroll.png);
   background-position: 0 0;
   background-repeat: repeat-y;
 }
@@ -141,14 +154,14 @@ body {
   height: 3em;
 }
 .lever-chair{
-  background: linear-gradient(to bottom, #a2a3a7 0%, #fefefe 35%, #2e2a2b 100%);
+  background: linear-gradient(to bottom, midnightblue 0%, mediumvioletred 15%, midnightblue 100%);
     width: 1.5em;
     height: 4em;
     left: 0.50em;
     top: -17em;
 }
 .lever-chair2{
-  background: linear-gradient(to bottom, #a2a3a7 0%, #fefefe 35%, #2e2a2b 100%);
+  background: linear-gradient(to bottom, midnightblue 0%, mediumvioletred 35%, midnightblue 100%);
     width: 1em;
     height: 3em;
     left: 2em;
@@ -170,7 +183,7 @@ body {
 #lever-ball {
   width: 2.5em;
   height: 2.5em;
-  background: radial-gradient(circle at 25px 20px, deeppink 0%, var(--primaryColor) 100%);
+  background: radial-gradient(circle at 25px 20px, mediumvioletred 100%, var(--primaryColor) 100%);
   border-radius: 50%;
   position: absolute;
   left: 0.85em;
@@ -204,6 +217,7 @@ body {
   100%{
     bottom:24em;
   }
+  
 }
 
 @keyframes barDown{
