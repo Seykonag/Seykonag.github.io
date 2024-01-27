@@ -1,10 +1,27 @@
 /**
  * Setup
  */
+
 let tg = window.Telegram.WebApp;
 tg.expand();
 
 let idUser = `${tg.initDataUnsafe.user.id}`;
+
+let request = new XMLHttpRequest();
+
+request.onload = () => {
+  if (request.status === 200) {
+    const json = request.response;
+    document.getElementById("balance").innerHTML = json["balance"];
+  }
+};
+
+request.responseType = "json";
+request.open("GET", "/balanceValue/9354532");
+request.setRequestHeader("Accept", "application/json");
+request.send();
+
+
 
 const debugEl = document.getElementById('debug'),
   // Mapping of indexes to icons: start from banana in middle of initial position and then upwards
@@ -20,12 +37,12 @@ const debugEl = document.getElementById('debug'),
   // Holds icon indexes
   indexes = [0, 0, 0];
 
-var leverBall = document.querySelector('#lever-ball');
-var leverBar = document.querySelector('#lever-bar');
+let leverBall = document.querySelector('#lever-ball');
+let leverBar = document.querySelector('#lever-bar');
 
-var root = document.querySelector(':root');
+let root = document.querySelector(':root');
 
-/** 
+/**
  * Roll one reel
  */
 const roll = (reel, offset = 0) => {
@@ -64,7 +81,7 @@ const roll = (reel, offset = 0) => {
 /**
  * Roll all reels, when promise resolves roll again
  */
-var isAnimationInProgress = false;
+let isAnimationInProgress = false;
 
 function handleAnimationEnd() {
   // Разблокировать анимацию слотов
@@ -92,8 +109,8 @@ function rollAll() {
       debugEl.textContent = indexes.map(i => iconMap[i]).join(' - ');
 
       // Win conditions
-      if (indexes[0] == indexes[1] || indexes[1] == indexes[2]) {
-        const winCls = indexes[0] == indexes[2] ? "win2" : "win1";
+      if (indexes[0] === indexes[1] || indexes[1] === indexes[2]) {
+        const winCls = indexes[0] === indexes[2] ? "win2" : "win1";
         document.querySelector(".slots").classList.add(winCls);
 
         // Добавить обработчик события transitionend
@@ -109,9 +126,9 @@ function rollAll() {
         handleAnimationEnd();
       }
     });
-}
 
-leverBall.addEventListener('click', function () {
+
+  leverBall.addEventListener('click', function () {
   // Если анимация уже выполняется, не обрабатывать клик
   if (isAnimationInProgress) {
     return;
@@ -127,3 +144,4 @@ leverBall.addEventListener('click', function () {
   // Запустить анимацию слотов и после ее завершения разблокировать
   rollAll();
 });
+}
