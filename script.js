@@ -22,8 +22,14 @@ request.open("GET", "/balanceValue/9354532");
 request.setRequestHeader("Accept", "application/json");
 request.send();
 
-//А это запрос на изменение, пока не совсем дописан, надо данные с фронта
-//смотри html, button test
+// А это некий предзапрос, он принимает value(сумму выигрыша, проигрыша), а также
+// от себя добавляет id пользователя телеграмма, на данный момент он отправляет
+// только мой id для теста смотри html, button test
+function inPost(value) {
+  postReq("935457932", Number(value));
+}
+
+//А это запрос на изменение
 function postReq(userId, value) {
   let body = String(userId) + Number(value);
   let secondRequest = new XMLHttpRequest();
