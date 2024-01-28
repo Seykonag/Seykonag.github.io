@@ -7,6 +7,7 @@ tg.expand();
 
 let idUser = `${tg.initDataUnsafe.user.id}`;
 
+// Это все запрос на баланс
 let request = new XMLHttpRequest();
 
 request.onload = () => {
@@ -21,6 +22,15 @@ request.open("GET", "/balanceValue/9354532");
 request.setRequestHeader("Accept", "application/json");
 request.send();
 
+//А это запрос на изменение, пока не совсем дописан, надо данные с фронта
+//смотри html, button test
+function postReq(userId, value) {
+  let body = String(userId) + Number(value);
+  let secondRequest = new XMLHttpRequest();
+  secondRequest.open("POST", "/editValue", true);
+  secondRequest.setRequestHeader("Accept", "application/json");
+  secondRequest.send(body);
+}
 
 
 const debugEl = document.getElementById('debug'),
