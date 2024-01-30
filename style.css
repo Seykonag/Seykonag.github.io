@@ -5,7 +5,7 @@
 
 .debug {
   position: fixed;
-  top: 550px;
+  top: 250px;
   left: 49%;
   transform: translateX(-50%);
   padding: 4px;
@@ -171,28 +171,24 @@ body {
 
 
 #lever-bar {
-    top: -18em;
     height: 6em;
     width: 0.7em;
     background: linear-gradient(to right, #a2a3a7 0%, #fefefe 35%, #2e2a2b 100%);
     border-radius: 50%/3px;
     position: absolute;
-    left: 1em;
-    bottom: 19em;
-    -webkit-tap-highlight-color: transparent;
-
+    left: 1.17em;
+    bottom: 15em;
 }
 
 #lever-ball {
-    top: -20em;
     width: 2.5em;
     height: 2.5em;
     background: radial-gradient(circle at 25px 20px, mediumvioletred 100%, var(--primaryColor) 100%);
     border-radius: 50%;
     position: absolute;
-    left: 0em;
+    left: 0.1em;
     cursor: pointer;
-    bottom: 24em;
+    bottom: 20em;
     z-index: 9;
     -webkit-tap-highlight-color: transparent;
 
@@ -214,13 +210,13 @@ body {
 
 @keyframes ballDown {
   0% {
-    bottom:24em;
+    bottom:20em;
   }
   50% {
-    bottom: 20em;
+    bottom:15.5em;
   }
   100%{
-    bottom:24em;
+    bottom:20em;
   }
   
 }
@@ -234,4 +230,50 @@ body {
   100% {
     height: 6em;
   }
+}
+
+.pulsate {
+     animation: pulsate 1.5s infinite alternate;     
+}
+
+h1{
+  position: absolute;
+  top: 120%;
+  left: 49%;
+  color: #FFFFFF;
+  font-family: Chalkduster, fantasy;
+  letter-spacing: 0.1rem;
+}
+
+@keyframes pulsate {
+    
+  0% {
+
+      text-shadow:
+      0 0 4px #FF19D9,
+      0 0 11px #FF19D9,
+      0 0 19px #FF19D9,
+      0 0 40px #FF19D9,
+      0 0 80px #FF19D9;
+  
+  }
+
+ 100% {
+
+    text-shadow:
+    0 0 2px #CC00AA,
+    0 0 4px #CC00AA,
+    0 0 6px #CC00AA,
+    0 0 10px #CC00AA,
+    0 0 45px #CC00AA,
+    0 0 55px #CC00AA,
+}
+}
+
+.balanse {
+    position: absolute;
+  top: 123%;
+  left: 15%;
+  color: whitesmoke;
+  font-family: Palatino Linotype;
 }
