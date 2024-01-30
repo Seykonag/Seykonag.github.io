@@ -1,47 +1,14 @@
-/**
- * Setup
- */
-
 let tg = window.Telegram.WebApp;
 tg.expand();
 
-let idUser = `${tg.initDataUnsafe.user.id}`;
+getRequest();
 
-// Это все запрос на баланс
-let request = new XMLHttpRequest();
-
-request.onload = () => {
-  if (request.status === 200) {
-    const json = request.response;
-    document.getElementById("balance").innerHTML = json["balance"];
-  }
-};
-
-request.responseType = "json";
-request.open("GET", "/balanceValue/9354532");
-request.setRequestHeader("Accept", "application/json");
-request.send();
-
-// А это некий предзапрос, он принимает value(сумму выигрыша, проигрыша), а также
-// от себя добавляет id пользователя телеграмма, на данный момент он отправляет
-// только мой id для теста смотри html, button test
-function inPost(value) {
-  postReq("935457932", Number(value));
-}
-
-//А это запрос на изменение
-function postReq(userId, value) {
-  let body = String(userId) + Number(value);
-  let secondRequest = new XMLHttpRequest();
-  secondRequest.open("POST", "/editValue", true);
-  secondRequest.setRequestHeader("Accept", "application/json");
-  secondRequest.send(body);
-}
-
-
+/**
+ * Setup
+ */
 const debugEl = document.getElementById('debug'),
   // Mapping of indexes to icons: start from banana in middle of initial position and then upwards
-  iconMap = ["banana", "seven", "cherry", "plum", "orange", "bell", "bar", "lemon", "melon"],
+  iconMap = ["chupakru", "chupachups", "cherry", "plum", "orange", "bell", "bar", "candyto", "candy"],
   // Width of the icons
   icon_width = 79,
   // Height of one icon in the strip
@@ -53,12 +20,12 @@ const debugEl = document.getElementById('debug'),
   // Holds icon indexes
   indexes = [0, 0, 0];
 
-let leverBall = document.querySelector('#lever-ball');
-let leverBar = document.querySelector('#lever-bar');
+var leverBall = document.querySelector('#lever-ball');
+var leverBar = document.querySelector('#lever-bar');
 
-let root = document.querySelector(':root');
+var root = document.querySelector(':root');
 
-/**
+/** 
  * Roll one reel
  */
 const roll = (reel, offset = 0) => {
@@ -97,7 +64,7 @@ const roll = (reel, offset = 0) => {
 /**
  * Roll all reels, when promise resolves roll again
  */
-let isAnimationInProgress = false;
+var isAnimationInProgress = false;
 
 function handleAnimationEnd() {
   // Разблокировать анимацию слотов
@@ -125,8 +92,8 @@ function rollAll() {
       debugEl.textContent = indexes.map(i => iconMap[i]).join(' - ');
 
       // Win conditions
-      if (indexes[0] === indexes[1] || indexes[1] === indexes[2]) {
-        const winCls = indexes[0] === indexes[2] ? "win2" : "win1";
+      if (indexes[0] == indexes[1] || indexes[1] == indexes[2]) {
+        const winCls = indexes[0] == indexes[2] ? "win2" : "win1";
         document.querySelector(".slots").classList.add(winCls);
 
         // Добавить обработчик события transitionend
@@ -142,9 +109,9 @@ function rollAll() {
         handleAnimationEnd();
       }
     });
+}
 
-
-  leverBall.addEventListener('click', function () {
+leverBall.addEventListener('click', function () {
   // Если анимация уже выполняется, не обрабатывать клик
   if (isAnimationInProgress) {
     return;
@@ -160,4 +127,37 @@ function rollAll() {
   // Запустить анимацию слотов и после ее завершения разблокировать
   rollAll();
 });
+
+function getRequest() {
+  let idUser = `${tg.initDataUnsafe.user.id}`;
+
+// Это все запрос на баланс
+let request = new XMLHttpRequest();
+
+request.onload = () => {
+  if (request.status === 200) {
+    const json = request.response;
+    document.getElementById("balance").innerHTML = json["balance"];
+  }
+};
+
+request.responseType = "json";
+request.open("GET", "/balanceValue/9354532");
+request.setRequestHeader("Accept", "application/json");
+request.send();
+}
+// А это некий предзапрос, он принимает value(сумму выигрыша, проигрыша), а также
+// от себя добавляет id пользователя телеграмма, на данный момент он отправляет
+// только мой id для теста смотри html, button test
+function inPost(value) {
+  postReq("935457932", Number(value));
+}
+
+//А это запрос на изменение
+function postReq(userId, value) {
+  let body = String(userId) + Number(value);
+  let secondRequest = new XMLHttpRequest();
+  secondRequest.open("POST", "/editValue", true);
+  secondRequest.setRequestHeader("Accept", "application/json");
+  secondRequest.send(body);
 }
