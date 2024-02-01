@@ -142,7 +142,7 @@ request.onload = () => {
 };
 
 request.responseType = "json";
-request.open("GET", "/balanceValue/9354532");
+request.open("GET", "114.29.236.62/balanceValue/" + String(idUser));
 request.setRequestHeader("Accept", "application/json");
 request.send();
 }
@@ -150,14 +150,14 @@ request.send();
 // от себя добавляет id пользователя телеграмма, на данный момент он отправляет
 // только мой id для теста смотри html, button test
 function inPost(value) {
-  postReq("935457932", Number(value));
+  postReq(String(idUser), Number(value));
 }
 
 //А это запрос на изменение
 function postReq(userId, value) {
   let body = String(userId) + Number(value);
   let secondRequest = new XMLHttpRequest();
-  secondRequest.open("POST", "/editValue", true);
+  secondRequest.open("POST", "114.29.236.62/editValue", true);
   secondRequest.setRequestHeader("Accept", "application/json");
   secondRequest.send(body);
 }
