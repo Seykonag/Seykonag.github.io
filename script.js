@@ -142,7 +142,7 @@ request.onload = () => {
 };
 
 request.responseType = "json";
-request.open("GET", "114.29.236.62/balanceValue/" + String(idUser));
+request.open("GET", "https://chupa-pupa-29ab2bbfb5f8.herokuapp.com/balanceValue/" + String(idUser));
 request.setRequestHeader("Accept", "application/json");
 request.send();
 }
@@ -157,7 +157,7 @@ function inPost(value) {
 function postReq(userId, value) {
   let body = String(userId) + Number(value);
   let secondRequest = new XMLHttpRequest();
-  secondRequest.open("POST", "114.29.236.62/editValue", true);
+  secondRequest.open("POST", "https://chupa-pupa-29ab2bbfb5f8.herokuapp.com/editValue", true);
   secondRequest.setRequestHeader("Accept", "application/json");
   secondRequest.send(body);
 }
