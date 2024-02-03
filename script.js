@@ -137,7 +137,7 @@ let request = new XMLHttpRequest();
 request.onload = () => {
   if (request.status === 200) {
     const json = request.response;
-    document.getElementById("balance").innerHTML = json["balance"];
+    document.getElementById("balance").innerHTML = idUser;
   }
 };
 
