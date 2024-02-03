@@ -1,7 +1,7 @@
 let tg = window.Telegram.WebApp;
 tg.expand();
 
-let idUser = `${tg.initDataUnsafe.user.id}`;
+let idUser = tg.initDataUnsafe.user.id;
 
 getRequest();
 
