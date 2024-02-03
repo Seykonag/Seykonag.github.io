@@ -129,7 +129,7 @@ leverBall.addEventListener('click', function () {
 });
 
 function getRequest() {
-  let idUser = `${tg.initDataUnsafe.user.id}`;
+  let idUser.innerText = `${tg.initDataUnsafe.user.id}`;
 
 // Это все запрос на баланс
 let request = new XMLHttpRequest();
