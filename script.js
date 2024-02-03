@@ -1,6 +1,8 @@
 let tg = window.Telegram.WebApp;
 tg.expand();
 
+let idUser.innerText = `${tg.initDataUnsafe.user.id}`;
+
 getRequest();
 
 /**
@@ -129,8 +131,6 @@ leverBall.addEventListener('click', function () {
 });
 
 function getRequest() {
-  let idUser.innerText = `${tg.initDataUnsafe.user.id}`;
-
 // Это все запрос на баланс
 let request = new XMLHttpRequest();
 
