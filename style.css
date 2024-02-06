@@ -3,6 +3,73 @@
   --primaryColor: #fc6e00;
 }
 
+.sign-wrap-4 {
+  position: absolute;
+  top: 100px;
+}
+.sign-wrap-4 .sign_word {
+    font-size: 60px;
+    font-weight: bold;
+    line-height: 50px;
+    color: hotpink;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em hotpink, 0 0 0.5em hotpink, 0 0 0.1em hotpink;
+}
+.sign-wrap-4 .sign_word span {
+    animation: neon-4 linear infinite 3s;
+}
+
+.sign-wrap-3 {
+  position: absolute;
+  top: 60px;
+}
+.sign-wrap-3 .sign_word1 {
+    font-size: 60px;
+    font-weight: bold;
+    line-height: 50px;
+    color: hotpink;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em hotpink, 0 0 0.5em hotpink, 0 0 0.1em hotpink;
+}
+.sign-wrap-3 .sign_word1 span {
+    animation: neon-4 linear infinite 4s;
+}
+
+@keyframes neon-4 {
+    78% {
+        color: inherit;
+        text-shadow: inherit;
+    }
+    79%{
+        color: blueviolet;
+    }
+    80% {
+        text-shadow: none;
+    }
+    81% {
+        color: inherit;
+        text-shadow: inherit;
+    }
+    82% {
+        color: blueviolet;
+        text-shadow: none;
+    }
+    83% {
+        color: inherit;
+        text-shadow: inherit;
+    }
+    92% {
+        color: blueviolet;
+        text-shadow: none;
+    }
+    92.5% {
+        color: inherit;
+        text-shadow: inherit;
+    }
+}
+
 .preloader {
   position: fixed;
   left: 0;
