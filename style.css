@@ -3,7 +3,46 @@
   --primaryColor: #fc6e00;
 }
 
-.debug {
+.preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  /* фоновый цвет */
+  background: #e0e0e0;
+  z-index: 1001;
+}
+
+.preloader__image {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  margin-top: -35px;
+  margin-left: -35px;
+  text-align: center;
+  animation: preloader-rotate 1.5s infinite linear;
+}
+
+@keyframes preloader-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loaded_hiding .preloader {
+  transition: 6s opacity;
+  opacity: 0;
+}
+
+.loaded .preloader {
+  display: none;
+}
+
+/*.debug {
   position: fixed;
   top: 250px;
   left: 49%;
@@ -15,7 +54,7 @@
   font-size: 1rem;
   color: whitesmoke;
   animation: glow 1s ease-in-out infinite alternate;
-}
+}*/
 
 @keyframes glow {
   from {
