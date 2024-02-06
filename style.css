@@ -11,7 +11,7 @@
   bottom: 0;
   overflow: hidden;
   /* фоновый цвет */
-  background: #e0e0e0;
+  background: white;
   z-index: 1001;
 }
 
@@ -34,8 +34,8 @@
 }
 
 .loaded_hiding .preloader {
-  transition: 12s opacity;
-  opacity: 0;
+  transition: 6s opacity;
+  opacity: 0.9;
 }
 
 .loaded .preloader {
