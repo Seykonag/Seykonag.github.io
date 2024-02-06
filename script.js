@@ -8,19 +8,6 @@ getRequest();
 /**
  * Setup
  */
-const debugEl = document.getElementById('debug'),
-  // Mapping of indexes to icons: start from banana in middle of initial position and then upwards
-  iconMap = ["chupakru", "chupachups", "cherry", "plum", "orange", "bell", "bar", "candyto", "candy"],
-  // Width of the icons
-  icon_width = 79,
-  // Height of one icon in the strip
-  icon_height = 79,
-  // Number of icons in the strip
-  num_icons = 9,
-  // Max-speed in ms for animating one icon down
-  time_per_icon = 100,
-  // Holds icon indexes
-  indexes = [0, 0, 0];
 
 var leverBall = document.querySelector('#lever-ball');
 var leverBar = document.querySelector('#lever-bar');
