@@ -11,8 +11,6 @@ getRequest();
 const debugEl = document.getElementById('debug'),
   // Mapping of indexes to icons: start from banana in middle of initial position and then upwards
   iconMap = ["chupakru", "chupachups", "cherry", "plum", "orange", "bell", "bar", "candyto", "candy"],
-  // Width of the icons
-  icon_width = 79,
   // Height of one icon in the strip
   icon_height = 79,
   // Number of icons in the strip
@@ -83,14 +81,12 @@ function handleAnimationEnd() {
 }
 
 function rollAll() {
-  debugEl.textContent = 'rolling...';
   const reelsList = document.querySelectorAll('.slots > .reel');
 
   Promise.all([...reelsList].map((reel, i) => roll(reel, i)))
     .then(deltas => {
       // add up indexes
       deltas.forEach((delta, i) => indexes[i] = (indexes[i] + delta) % num_icons);
-      debugEl.textContent = indexes.map(i => iconMap[i]).join(' - ');
 
       // Win conditions
       if (indexes[0] == indexes[1] && indexes[1] == indexes[2]) {
