@@ -121,7 +121,6 @@
   top: 0;
   right: 0;
   bottom: 0;
-  overflow: hidden;
   /* фоновый цвет */
   background: white;
   z-index: 1001;
@@ -152,20 +151,6 @@
 
 .loaded .preloader {
   display: none;
-}
-
-.debug {
-  position: fixed;
-  top: 25000px;
-  left: 49%;
-  transform: translateX(-50%);
-  padding: 4px;
-  background:;
-  border: 0px solid rgba(0, 0, 0, 0.3);
-  font-family: monospace;
-  font-size: 1rem;
-  color: whitesmoke;
-  animation: glow 1s ease-in-out infinite alternate;
 }
 
 @keyframes glow {
