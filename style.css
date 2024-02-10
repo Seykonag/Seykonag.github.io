@@ -9,11 +9,11 @@
 }    
 .quantity_inner {
 	position: absolute;
-	top: 82%;
+	top: 78%;
 	left: 30%;
-    display: inline-flex;
-    border-radius: 26px;
-    border: 4px solid hotpink;
+	display: inline-flex;
+	border-radius: 26px;
+	border: 4px solid hotpink;
 }        
 .quantity_inner .bt_minus,
 .quantity_inner .bt_plus,
