@@ -164,7 +164,8 @@ function postReq(userId, value) {
   secondRequest.send(body);
 }
 
-// Убавляем кол-во по клику
+$(document).ready(function() {
+    // Убавляем кол-во по клику
     $('.quantity_inner .bt_minus').click(function() {
     let $input = $(this).parent().find('.quantity');
     let count = parseInt($input.val()) - 5;
@@ -190,3 +191,4 @@ $('.quantity_inner .quantity').bind("change keyup input click", function() {
         this.value = parseInt($(this).data('max-count'));
     }    
 });    
+});
