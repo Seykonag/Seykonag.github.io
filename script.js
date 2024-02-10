@@ -5,9 +5,6 @@ let idUser = tg.initDataUnsafe.user.id;
 
 getRequest();
 
-/**
- * Setup
- */
 const debugEl = document.getElementById('debug'),
   // Mapping of indexes to icons: start from banana in middle of initial position and then upwards
   iconMap = ["chupakru", "chupachups", "cherry", "plum", "orange", "bell", "bar", "candyto", "candy"],
