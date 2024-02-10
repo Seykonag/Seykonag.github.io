@@ -404,8 +404,9 @@ h1{
 
 .balanse {
     position: absolute;
-  top: 133%;
-  left: 33%;
+  top: 120%;
+  left: 10%;
   color: whitesmoke;
   font-family: Palatino Linotype;
+}
 }
