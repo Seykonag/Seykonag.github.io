@@ -142,9 +142,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(fone.png);
-  background-repeat: no-repeat;
-  background-size: 100%;
+  background-color: #13111A;
 }
 
 .slots {
