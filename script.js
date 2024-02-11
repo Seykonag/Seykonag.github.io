@@ -5,6 +5,8 @@ let idUser = tg.initDataUnsafe.user.id;
 
 const request = new XMLHttpRequest();
 
+var balance = 0;
+
 getRequest();
 
 const debugEl = document.getElementById('debug'),
@@ -91,6 +93,7 @@ leverBall.addEventListener('click', function () {
   if (isAnimationInProgress) {
     return;
   }
+  balance -= 10;
 
   // Блокировать анимацию слотов
   isAnimationInProgress = true;
@@ -108,6 +111,7 @@ function getRequest() {
   request.onload = () => {
     if (request.status === 200) {
       const json = request.response;
+      balance = json["balance"];
       document.getElementById("balance").innerHTML = json["balance"];
     }
   };
