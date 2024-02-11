@@ -65,18 +65,23 @@ function handleAnimationEnd() {
 
 function rollAll() {
   const reelsList = document.querySelectorAll('.slots > .reel');
-  const winCls = indexes[0] == indexes[2] ? "win2" : "win1";
-  const slots = document.querySelector(".slots");
 
-  Promise.all(Array.from(reelsList).map((reel, i) => roll(reel, i)))
+  Promise.all([...reelsList].map((reel, i) => roll(reel, i)))
     .then(deltas => {
+      // add up indexes
       deltas.forEach((delta, i) => indexes[i] = (indexes[i] + delta) % num_icons);
 
-      if (indexes[0] === indexes[1] || indexes[1] === indexes[2]) {
-        slots.classList.add(winCls);
-        slots.addEventListener('transitionend', handleAnimationEnd);
-        setTimeout(() => slots.classList.remove(winCls), 2500);
+      // Win conditions
+      if (indexes[0] == indexes[1] || indexes[1] == indexes[2]) {
+        const winCls = indexes[0] == indexes[2] ? "win2" : "win1";
+        document.querySelector(".slots").classList.add(winCls);
+
+        // Добавить обработчик события transitionend
+        document.querySelector(".slots").addEventListener('transitionend', handleAnimationEnd);
+
+        setTimeout(() => document.querySelector(".slots").classList.remove(winCls), 2500);
       }
+      // Again!
       handleAnimationEnd();
     });
 }
