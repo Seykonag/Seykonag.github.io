@@ -3,6 +3,8 @@ tg.expand();
 
 let idUser = tg.initDataUnsafe.user.id;
 
+const request = new XMLHttpRequest();
+
 getRequest();
 
 const debugEl = document.getElementById('debug'),
@@ -98,8 +100,6 @@ leverBall.addEventListener('click', function () {
 
 function getRequest() {
   // Это все запрос на баланс
-  let request = new XMLHttpRequest();
-
   request.onload = () => {
     if (request.status === 200) {
       const json = request.response;
@@ -122,10 +122,9 @@ function getRequest() {
 //А это запрос на изменение
 function postReq(userId, value) {
   let body = String(userId) + Number(value);
-  let secondRequest = new XMLHttpRequest();
-  secondRequest.open("POST", "https://chupa-pupa-29ab2bbfb5f8.herokuapp.com/editValue", true);
-  secondRequest.setRequestHeader("Accept", "application/json");
-  secondRequest.send(body);
+  request.open("POST", "https://chupa-pupa-29ab2bbfb5f8.herokuapp.com/editValue", true);
+  request.setRequestHeader("Accept", "application/json");
+  request.send(body);
 }
 
 $(document).ready(function() {
