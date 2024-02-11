@@ -93,7 +93,9 @@ leverBall.addEventListener('click', function () {
   if (isAnimationInProgress) {
     return;
   }
+	
   balance -= 10;
+  document.getElementById("balance").innerHTML = balance;
 
   // Блокировать анимацию слотов
   isAnimationInProgress = true;
