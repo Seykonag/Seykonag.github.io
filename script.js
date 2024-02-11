@@ -86,16 +86,8 @@ function rollAll() {
       deltas.forEach((delta, i) => indexes[i] = (indexes[i] + delta) % num_icons);
 
       // Win conditions
-      if (indexes[0] == indexes[1] && indexes[1] == indexes[2]) {
-        const winCls = "win2";
-        document.querySelector(".slots").classList.add(winCls);
-
-        // Добавить обработчик события transitionend
-        document.querySelector(".slots").addEventListener('transitionend', handleAnimationEnd);
-
-        setTimeout(() => document.querySelector(".slots").classList.remove(winCls), 2500);
-      } else if (indexes[0] == indexes[1] || indexes[1] == indexes[2]) {
-        const winCls = "win1";
+      if (indexes[0] == indexes[1] || indexes[1] == indexes[2]) {
+        const winCls = indexes[0] == indexes[2] ? "win2" : "win1";
         document.querySelector(".slots").classList.add(winCls);
 
         // Добавить обработчик события transitionend
