@@ -191,22 +191,7 @@ body {
     border-radius: 3px;
     left: -20px;
 }
-.::before, .::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  width: 10px;
-  height: 2px;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-.slots::before {
-  left: 0;
-  transform: translate(-200%, -50%);
-}
-.slots::after {
-  right: 0;
-  transform: translate(200%, -50%);
-}
+
 @keyframes win1 {
   0% {
     background: linear-gradient(45deg, mediumvioletred 0%, mediumvioletred 100%);
