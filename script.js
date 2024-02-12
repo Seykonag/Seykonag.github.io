@@ -98,6 +98,8 @@ function rollAll() {
     });
 }
 
+var isAnimationInProgress = false;
+
 leverBall.addEventListener('mousedown', function () {
   if (balance < 5 || isAnimationInProgress) {
     return; 
