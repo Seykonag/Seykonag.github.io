@@ -78,11 +78,13 @@ function rollAll() {
 	      if (winCls == "win1") {
 		      var bonuce = val * 5 + balance;
 		      document.getElementById("balance").innerHTML = bonuce;
+		      balance = bonuce;
 		      postReq(val * 5);
 	      } else if (winCls == "win2") {
 		      var bonuce = val * 10 + balance;
 		      document.getElementById("balance").innerHTML = bonuce;
 		      postReq(val * 10);
+		      balance = bonuce;
 	      }
         document.querySelector(".slots").classList.add(winCls);
 
