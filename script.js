@@ -129,13 +129,13 @@ const request = new XMLHttpRequest();
   // только мой id для теста смотри html, button test
 
 //А это запрос на изменение
+
 function postReq(value) {
-  const secondRequest = new XMLHttpRequest();
-  let body = [idUser, value];
+  let body = String(idUser) + Number(value);
+  let secondRequest = new XMLHttpRequest();
   secondRequest.open("POST", "https://chupa-pupa-29ab2bbfb5f8.herokuapp.com/editValue", true);
-  secondRequest.setRequestHeader('Content-Type', 'application/json');
+  secondRequest.setRequestHeader("Accept", "application/json");
   secondRequest.send(body);
-  secondRequest.onload = () => alert(xhr.response);
 }
 
 $(document).ready(function() {
