@@ -100,7 +100,7 @@ function rollAll() {
 
 var leverBall = document.querySelector('#lever-ball');
 
-leverBall.addEventListener('mousedown', function () {
+leverBall.addEventListener('click', function () {
   if (balance < 5 || isAnimationInProgress) {
     return; 
   }
