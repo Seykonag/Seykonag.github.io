@@ -98,27 +98,10 @@ function rollAll() {
     });
 }
 
-
-var isAnimationInProgress = false;
-
 leverBall.addEventListener('click', function () {
   if (balance < 5 || isAnimationInProgress) {
         return; 
   }
-	
-  // Блокировать изменение ставки
-  $('.quantity_inner .bt_minus').prop('disabled', true);
-  $('.quantity_inner .bt_plus').prop('disabled', true);
-
-});
-
-function handleAnimationEnd() {
-  // Разблокировать изменение ставки
-  $('.quantity_inner .bt_minus').prop('disabled', false);
-  $('.quantity_inner .bt_plus').prop('disabled', false);
-
-}
-
 
   var val = document.getElementById('bet').value;
 	
