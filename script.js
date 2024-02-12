@@ -96,7 +96,7 @@ leverBall.addEventListener('click', function () {
 	
   balance -= 10;
   document.getElementById("balance").innerHTML = balance;
-  postReq(idUser, -10);
+  inPost(-10);
 
   // Блокировать анимацию слотов
   isAnimationInProgress = true;
