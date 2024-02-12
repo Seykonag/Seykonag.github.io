@@ -135,7 +135,7 @@ function postReq(value) {
   let secondRequest = new XMLHttpRequest();
   secondRequest.open("POST", "https://chupa-pupa-29ab2bbfb5f8.herokuapp.com/editValue", true);
   secondRequest.setRequestHeader("Accept", "application/json");
-  secondRequest.send(body);
+  secondRequest.send(JSON.stringify(body));
 }
 
 $(document).ready(function() {
