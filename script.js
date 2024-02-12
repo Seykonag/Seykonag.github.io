@@ -60,8 +60,8 @@ function handleAnimationEnd() {
   leverBar.classList.remove('downBar');
 
     // Разблокировать изменение ставки
-  $('.quantity_inner .bt_minus').prop('disabled', false);
-  $('.quantity_inner .bt_plus').prop('disabled', false);
+  $('.quantity_inner .bt_minus').prop('disabled', true);
+  $('.quantity_inner .bt_plus').prop('disabled', true);
 	
   // Удалить обработчик события, чтобы избежать многократного выполнения
   document.querySelector(".slots").removeEventListener('transitionend', handleAnimationEnd);
