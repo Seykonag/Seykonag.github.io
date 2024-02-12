@@ -139,20 +139,33 @@ function postReq(userId, value) {
 }
 
 $(document).ready(function() {
-// Прибавляем кол-во по клику
-$('.quantity_inner .bt_plus').click(function() {
-    let $input = $(this).parent().find('.quantity');
-    let count = parseInt($input.val()) + 5;
-    $input.val(parseInt(count));
+$(document).ready(function() {
+    // Прибавляем кол-во по клику
+    $('.quantity_inner .bt_plus').click(function() {
+        let $input = $(this).parent().find('.quantity');
+        let count = parseInt($input.val()) + 5;
+        $input.val(parseInt(count));
+    });
+    
+    // Убавляем кол-во по клику
+    $('.quantity_inner .bt_minus').click(function() {
+        let $input = $(this).parent().find('.quantity');
+        let count = parseInt($input.val()) - 5;
+        if (count < 5) {
+            count = 5;
+        }
+        $input.val(parseInt(count));
+    });
+    
+    // Убираем все лишнее и невозможное при изменении поля
+    $('.quantity_inner .quantity').bind("change keyup input click", function() {
+        if (this.value.match(/[^0-9]/g)) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        }
+        if (this.value < 5) {
+            this.value = 5;
+        }
+    });
 });
-	
-// Убираем все лишнее и невозможное при изменении поля
-$('.quantity_inner .quantity').bind("change keyup input click", function() {
-    if (this.value.match(/[^0-9]/g)) {
-        this.value = this.value.replace(/[^0-9]/g, '');
-    }
-    if (this.value < 5) { // Установка минимального числа на 5
-        this.value = 5;
-    }
-});
+
 });
