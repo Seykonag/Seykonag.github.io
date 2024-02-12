@@ -171,3 +171,21 @@ $(document).ready(function() {
         }
     });    
 });
+
+leverBall.addEventListener('click', function () {
+    if (balance < 5 || isAnimationInProgress) {
+        return; 
+    }
+	
+    balance += 10;
+    document.getElementById("balance").innerHTML = balance;
+    postReq(10);
+
+
+    isAnimationInProgress = true;
+
+    leverBall.classList.add('downBall');
+    leverBar.classList.add('downBar');
+
+    rollAll();
+});
