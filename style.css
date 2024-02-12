@@ -29,6 +29,7 @@
     background: transparent;
     cursor: pointer;
     outline: 0;
+	-webkit-tap-highlight-color: transparent;
 }
 .quantity_inner .quantity {
     width: 50px;
