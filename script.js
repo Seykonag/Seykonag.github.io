@@ -120,24 +120,6 @@ leverBall.addEventListener('click', function () {
   rollAll();
 });
 
-function handleAnimationStart() {
-  // Отключить кнопки bt_minus и bt_plus
-  document.querySelector('.bt_minus').disabled = true;
-  document.querySelector('.bt_plus').disabled = true;
-}
-
-function handleAnimationEnd() {
-  // Разблокировать кнопки bt_minus и bt_plus
-  document.querySelector('.bt_minus').disabled = false;
-  document.querySelector('.bt_plus').disabled = false;
-}
-
-// Добавить обработчик события на начало анимации
-document.querySelector(".slots").addEventListener('animationstart', handleAnimationStart);
-// Добавить обработчик события на конец анимации
-document.querySelector(".slots").addEventListener('animationend', handleAnimationEnd);
-
-
 function getRequest() {
   // Это все запрос на баланс
 const request = new XMLHttpRequest();
