@@ -74,6 +74,14 @@ function rollAll() {
       // Win conditions
       if (indexes[0] == indexes[1] || indexes[1] == indexes[2]) {
         const winCls = indexes[0] == indexes[2] ? "win2" : "win1";
+	var val = document.getElementById('bet').value;
+	      if (winCls == "win1") {
+		      var bonuce = val * 5 + balance;
+		      document.getElementById("balance").innerHTML = bonuce;
+	      } else if (winCls == "win2") {
+		      var bonuce = val * 10 + balance;
+		      document.getElementById("balance").innerHTML = bonuce;
+	      }
         document.querySelector(".slots").classList.add(winCls);
 
         // Добавить обработчик события transitionend
