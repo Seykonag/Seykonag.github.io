@@ -121,7 +121,7 @@ const request = new XMLHttpRequest();
 
   request.responseType = "json";
   request.open("GET", "https://chupa-pupa-29ab2bbfb5f8.herokuapp.com/balanceValue/" + String(idUser), true);
-  request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+  request.setRequestHeader("Accept", "application/json");
   request.send();
 }
   // А это некий предзапрос, он принимает value(сумму выигрыша, проигрыша), а также
@@ -134,7 +134,7 @@ function postReq(value) {
   let body = [idUser, value];
   let secondRequest = new XMLHttpRequest();
   secondRequest.open("POST", "https://chupa-pupa-29ab2bbfb5f8.herokuapp.com/editValue", true);
-  secondRequest.setRequestHeader("Accept", "application/json");
+  secondRequest.setRequestHeader('Content-type', 'application/json; charset=utf-8');
   secondRequest.send(JSON.stringify(body));
 }
 
