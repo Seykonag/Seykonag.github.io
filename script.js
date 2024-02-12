@@ -138,30 +138,33 @@ function postReq(value) {
 }
 
 $(document).ready(function() {
-    // Прибавляем кол-во по клику
-    $('.quantity_inner .bt_plus').click(function() {
-        let $input = $(this).parent().find('.quantity');
-        let count = parseInt($input.val()) + 5;
-        $input.val(parseInt(count));
-    });
-    
     // Убавляем кол-во по клику
     $('.quantity_inner .bt_minus').click(function() {
         let $input = $(this).parent().find('.quantity');
         let count = parseInt($input.val()) - 5;
-        if (count < 5) {
-            count = 5;
-        }
-        $input.val(parseInt(count));
+        count = count < 5 ? 5 : count; // Минимальное значение 5
+        count = count > balance ? balance : count; 
+        $input.val(count);
     });
-    
+
+    // Прибавляем кол-во по клику
+    $('.quantity_inner .bt_plus').click(function() {
+        let $input = $(this).parent().find('.quantity');
+        let count = parseInt($input.val()) + 5;
+        count = count > balance ? balance : count;
+        $input.val(count);
+    });
+	
     // Убираем все лишнее и невозможное при изменении поля
     $('.quantity_inner .quantity').bind("change keyup input click", function() {
         if (this.value.match(/[^0-9]/g)) {
             this.value = this.value.replace(/[^0-9]/g, '');
         }
-        if (this.value < 5) {
+        if (this.value == "") {
             this.value = 5;
         }
-    });
+        if (this.value > balance) {
+            this.value = balance;
+        }    
+    });  
 });
