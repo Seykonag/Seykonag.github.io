@@ -119,13 +119,13 @@
     }
 }
 
-.preloader {
+/*.preloader {
   position: fixed;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
-  /* фоновый цвет */
+  /* фоновый цвет 
   background: white;
   z-index: 1001;
 }
@@ -141,6 +141,7 @@
   text-align: center;
   animation: preloader-rotate 1.5s infinite linear;
 }
+*/
 
 @keyframes preloader-rotate {
   100% {
