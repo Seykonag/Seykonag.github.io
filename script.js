@@ -121,7 +121,7 @@ const request = new XMLHttpRequest();
 
   request.responseType = "json";
   request.open("GET", "https://chupa-pupa-29ab2bbfb5f8.herokuapp.com/balanceValue/" + String(idUser), true);
-  request.setRequestHeader("Accept", "application/json");
+  request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
   request.send();
 }
   // А это некий предзапрос, он принимает value(сумму выигрыша, проигрыша), а также
