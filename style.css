@@ -119,13 +119,13 @@
     }
 }
 
-/*.preloader {
+.preloader {
   position: fixed;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
-  /* фоновый цвет 
+  /* фоновый цвет */
   background: white;
   z-index: 1001;
 }
@@ -141,7 +141,7 @@
   text-align: center;
   animation: preloader-rotate 1.5s infinite linear;
 }
-*/
+
 
 @keyframes preloader-rotate {
   100% {
@@ -345,7 +345,7 @@ body {
 
 h1{
   position: absolute;
-  top: 122%;
+  top: 127%;
   left: 59%;
   color: #FFFFFF;
   font-family: Chalkduster, fantasy;
@@ -379,7 +379,7 @@ h1{
 
 .balanse {
   position: absolute;
-  top: 125%;
+  top: 130%;
   left: 26%;
   color: whitesmoke;
   font-family: Palatino Linotype;
