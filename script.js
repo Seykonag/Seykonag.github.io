@@ -100,8 +100,39 @@ function rollAll() {
 
 leverBall.addEventListener('click', function () {
   if (balance < 5 || isAnimationInProgress) {
-        return; 
+    return; 
   }
+
+  // Блокировать кнопки увеличения и уменьшения ставки
+  $('.quantity_inner .bt_minus').prop('disabled', true);
+  $('.quantity_inner .bt_plus').prop('disabled', true);
+  
+  var val = document.getElementById('bet').value;
+  
+  balance -= val;
+  document.getElementById("balance").innerHTML = balance;
+  postReq(-val);
+
+  isAnimationInProgress = true;
+
+  leverBall.classList.add('downBall');
+  leverBar.classList.add('downBar');
+
+  rollAll();
+});
+
+function handleAnimationEnd() {
+  isAnimationInProgress = false;
+
+  leverBall.classList.remove('downBall');
+  leverBar.classList.remove('downBar');
+
+  // Разблокировать кнопки увеличения и уменьшения ставки
+  $('.quantity_inner .bt_minus').prop('disabled', false);
+  $('.quantity_inner .bt_plus').prop('disabled', false);
+
+  document.querySelector(".slots").removeEventListener('transitionend', handleAnimationEnd);
+}
 
   var val = document.getElementById('bet').value;
 	
