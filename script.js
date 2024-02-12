@@ -92,7 +92,9 @@ leverBall.addEventListener('click', function () {
         return; 
   }
 	
-  balance += 10;
+  var val = document.getElementById('bet').value;
+	
+  balance -= val;
   document.getElementById("balance").innerHTML = balance;
   postReq(10);
 
@@ -117,7 +119,7 @@ const request = new XMLHttpRequest();
       balance = json["balance"];
       document.getElementById("balance").innerHTML = json["balance"];
     }
-	};
+  };
 
   request.responseType = "json";
   request.open("GET", "https://chupa-pupa-29ab2bbfb5f8.herokuapp.com/balanceValue/" + String(idUser), true);
