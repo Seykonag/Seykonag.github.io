@@ -135,7 +135,6 @@ function getRequest() {
 function postReq(userId, value) {
   let body = String(userId) + Number(value);
   request.open("POST", "https://chupa-pupa-29ab2bbfb5f8.herokuapp.com/editValue", true);
-  request.setRequestHeader("Accept", "application/json");
   request.send(body);
 }
 
