@@ -139,7 +139,6 @@ function postReq(userId, value) {
 }
 
 $(document).ready(function() {
-$(document).ready(function() {
     // Прибавляем кол-во по клику
     $('.quantity_inner .bt_plus').click(function() {
         let $input = $(this).parent().find('.quantity');
@@ -166,6 +165,4 @@ $(document).ready(function() {
             this.value = 5;
         }
     });
-});
-
 });
