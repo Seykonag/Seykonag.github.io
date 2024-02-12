@@ -117,13 +117,13 @@ const request = new XMLHttpRequest();
       balance = json["balance"];
       document.getElementById("balance").innerHTML = json["balance"];
     }
-  };
+	};
 
   request.responseType = "json";
   request.open("GET", "https://chupa-pupa-29ab2bbfb5f8.herokuapp.com/balanceValue/" + String(idUser), true);
   request.setRequestHeader("Accept", "application/json");
   request.send();
-  }
+}
   // А это некий предзапрос, он принимает value(сумму выигрыша, проигрыша), а также
   // от себя добавляет id пользователя телеграмма, на данный момент он отправляет
   // только мой id для теста смотри html, button test
@@ -131,7 +131,7 @@ const request = new XMLHttpRequest();
 //А это запрос на изменение
 
 function postReq(value) {
-  let body = String(idUser) + Number(value);
+  let body = [idUser, value];
   let secondRequest = new XMLHttpRequest();
   secondRequest.open("POST", "https://chupa-pupa-29ab2bbfb5f8.herokuapp.com/editValue", true);
   secondRequest.setRequestHeader("Accept", "application/json");
