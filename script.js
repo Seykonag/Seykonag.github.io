@@ -103,8 +103,12 @@ leverBall.addEventListener('click', function () {
     return; 
   }
 
+  // Отключить кнопки bt_minus и bt_plus
+  document.querySelector('.bt_minus').disabled = true;
+  document.querySelector('.bt_plus').disabled = true;
+
   var val = document.getElementById('bet').value;
-	
+  
   balance -= val;
   document.getElementById("balance").innerHTML = balance;
   postReq(-val);
@@ -119,6 +123,15 @@ leverBall.addEventListener('click', function () {
   // Запустить анимацию слотов и после ее завершения разблокировать
   rollAll();
 });
+
+// Где-то в вашем коде, когда завершается анимация:
+function handleAnimationEnd() {
+  // Разблокировать кнопки bt_minus и bt_plus
+  document.querySelector('.bt_minus').disabled = false;
+  document.querySelector('.bt_plus').disabled = false;
+
+  // Другие действия после завершения анимации, если есть
+}
 
 function getRequest() {
   // Это все запрос на баланс
