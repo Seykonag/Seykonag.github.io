@@ -88,8 +88,8 @@ function rollAll() {
 
 leverBall.addEventListener('click', function () {
   // Если анимация уже выполняется, не обрабатывать клик
-  if (isAnimationInProgress) {
-    return;
+  if (balance < 5 || isAnimationInProgress) {
+        return; 
   }
 	
   balance += 10;
@@ -133,8 +133,9 @@ function postReq(value) {
   const secondRequest = new XMLHttpRequest();
   let body = [idUser, value];
   secondRequest.open("POST", "https://chupa-pupa-29ab2bbfb5f8.herokuapp.com/editValue", true);
-  secondRequest.setRequestHeader("Accept", "application/json");
+  secondRequest.setRequestHeader('Content-Type', 'application/json');
   secondRequest.send(body);
+  secondRequest.onload = () => alert(xhr.response);
 }
 
 $(document).ready(function() {
@@ -170,22 +171,4 @@ $(document).ready(function() {
             this.value = 5;
         }
     });    
-});
-
-leverBall.addEventListener('click', function () {
-    if (balance < 5 || isAnimationInProgress) {
-        return; 
-    }
-	
-    balance += 10;
-    document.getElementById("balance").innerHTML = balance;
-    postReq(10);
-
-
-    isAnimationInProgress = true;
-
-    leverBall.classList.add('downBall');
-    leverBar.classList.add('downBar');
-
-    rollAll();
 });
