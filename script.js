@@ -3,8 +3,6 @@ tg.expand();
 
 let idUser = tg.initDataUnsafe.user.id;
 
-const request = new XMLHttpRequest();
-
 var balance = 0;
 
 getRequest();
@@ -96,7 +94,7 @@ leverBall.addEventListener('click', function () {
 	
   balance += 10;
   document.getElementById("balance").innerHTML = balance;
-  inPost(10);
+  postReq(10);
 
   // Блокировать анимацию слотов
   isAnimationInProgress = true;
@@ -111,6 +109,8 @@ leverBall.addEventListener('click', function () {
 
 function getRequest() {
   // Это все запрос на баланс
+const request = new XMLHttpRequest();
+	
   request.onload = () => {
     if (request.status === 200) {
       const json = request.response;
@@ -120,22 +120,21 @@ function getRequest() {
   };
 
   request.responseType = "json";
-  request.open("GET", "https://chupa-pupa-29ab2bbfb5f8.herokuapp.com/balanceValue/" + String(idUser));
+  request.open("GET", "https://chupa-pupa-29ab2bbfb5f8.herokuapp.com/balanceValue/" + String(idUser), true);
   request.setRequestHeader("Accept", "application/json");
   request.send();
   }
   // А это некий предзапрос, он принимает value(сумму выигрыша, проигрыша), а также
   // от себя добавляет id пользователя телеграмма, на данный момент он отправляет
   // только мой id для теста смотри html, button test
-  function inPost(value) {
-    postReq(String(idUser), Number(value));
-}
 
 //А это запрос на изменение
-function postReq(userId, value) {
-  let body = String(userId) + Number(value);
-  request.open("POST", "https://chupa-pupa-29ab2bbfb5f8.herokuapp.com/editValue", true);
-  request.send(body);
+function postReq(value) {
+  const secondRequest = new XMLHttpRequest();
+  let body = [idUser, value];
+  secondRequest.open("POST", "https://chupa-pupa-29ab2bbfb5f8.herokuapp.com/editValue", true);
+  secondRequest.setRequestHeader("Accept", "application/json");
+  secondRequest.send(body);
 }
 
 $(document).ready(function() {
