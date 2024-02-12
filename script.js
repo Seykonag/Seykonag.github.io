@@ -48,10 +48,10 @@ const roll = async (reel, offset = 0) => {
 
 /**
  * Roll all reels, when promise resolves roll again
- *//*
+ */
 var isAnimationInProgress = false;
 
-//function handleAnimationEnd() {
+  function handleAnimationEnd() {
   // Разблокировать анимацию слотов
   isAnimationInProgress = false;
 
@@ -61,24 +61,6 @@ var isAnimationInProgress = false;
 
   // Удалить обработчик события, чтобы избежать многократного выполнения
   document.querySelector(".slots").removeEventListener('transitionend', handleAnimationEnd);
-}*/
-
-var isAnimationInProgress = false;
-
-function handleAnimationEnd() {
-  // Разблокировать анимацию слотов
-  isAnimationInProgress = false;
-
-  // Убрать классы анимации рычага
-  leverBall.classList.remove('downBall');
-  leverBar.classList.remove('downBar');
-
-  // Удалить обработчик события, чтобы избежать многократного выполнения
-  document.querySelector(".slots").removeEventListener('transitionend', handleAnimationEnd);
-
-  // Включить кнопки bt_minus и bt_plus
-  document.querySelector('.bt_minus').disabled = false;
-  document.querySelector('.bt_plus').disabled = false;
 }
 
 function rollAll() {
