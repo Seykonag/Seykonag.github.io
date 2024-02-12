@@ -3,6 +3,9 @@
   --primaryColor: #fc6e00;
 }
 
+.quantity {
+  pointer-events: none;
+}
 
 .quantity_inner * {
     box-sizing: border-box;    
