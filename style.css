@@ -9,7 +9,7 @@
 }    
 .quantity_inner {
 	position: absolute;
-	top: 81%;
+	top: 82%;
 	left: 30%;
 	display: inline-flex;
 	border-radius: 26px;
@@ -340,8 +340,8 @@ body {
 
 h1{
   position: absolute;
-  top: 120%;
-  left: 55%;
+  top: 122%;
+  left: 59%;
   color: #FFFFFF;
   font-family: Chalkduster, fantasy;
   letter-spacing: 0.1rem;
@@ -374,8 +374,8 @@ h1{
 
 .balanse {
   position: absolute;
-  top: 123%;
-  left: 22%;
+  top: 125%;
+  left: 26%;
   color: whitesmoke;
   font-family: Palatino Linotype;
 }
